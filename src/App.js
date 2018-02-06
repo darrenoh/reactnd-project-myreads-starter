@@ -16,6 +16,14 @@ class BooksApp extends Component {
     })
   }
 
+  updateBook = (book, shelf) => {
+    book.shelf = shelf
+    this.setState((state) => ({
+      books: state.books.filter((b) => book.id !== b.id).concat([book])
+    }))
+    BooksAPI.update(book, shelf)
+  }
+
   render() {
     const { books } = this.state
 
@@ -24,6 +32,7 @@ class BooksApp extends Component {
         <Route exact path="/" render={() => (
           <ListBooks
             books={books}
+            onUpdateBook={this.updateBook}
           />
         )}/>
         <Route path="/search" render={() => (

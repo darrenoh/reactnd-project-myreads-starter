@@ -14,7 +14,12 @@ const ListBooks = props => (
           <div className="bookshelf-books">
             <ol className="books-grid">
               {props.books.filter(book => book.shelf === 'currentlyReading').map(
-                book => <Book book={book}/>
+                book => (
+                  <Book
+                    book={book}
+                    onUpdateBook={props.onUpdateBook}
+                  />
+                )
               )}
             </ol>
           </div>
@@ -24,7 +29,12 @@ const ListBooks = props => (
           <div className="bookshelf-books">
             <ol className="books-grid">
               {props.books.filter(book => book.shelf === 'wantToRead').map(
-                book => <Book book={book}/>
+                book => (
+                  <Book
+                    book={book}
+                    onUpdateBook={props.onUpdateBook}
+                  />
+                )
               )}
             </ol>
           </div>
@@ -34,7 +44,12 @@ const ListBooks = props => (
           <div className="bookshelf-books">
             <ol className="books-grid">
               {props.books.filter(book => book.shelf === 'read').map(
-                book => <Book book={book}/>
+                book => (
+                  <Book
+                    book={book}
+                    onUpdateBook={props.onUpdateBook}
+                  />
+                )
               )}
             </ol>
           </div>
