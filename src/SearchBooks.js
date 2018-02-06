@@ -1,44 +1,44 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import Book from './Book'
-import * as BooksAPI from './BooksAPI'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Book from './Book';
+import * as BooksAPI from './BooksAPI';
 
 class SearchBooks extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
     onUpdateBook: PropTypes.func.isRequired
-  }
+  };
 
   state = {
     query: '',
     results: []
-  }
+  };
 
   updateQuery = (query) => {
-    const { books } = this.props
+    const { books } = this.props;
 
-    query = query.trim()
-    this.setState({ query })
+    query = query.trim();
+    this.setState({ query });
     if (query) {
       BooksAPI.search(query).then(results => {
         this.setState({ results: results.map(result => {
-          result.shelf = 'none'
+          result.shelf = 'none';
           books.filter(book => result.id === book.id).map(book => {
-            result = book
-            return book
-          })
-          return result
-        })})
+            result = book;
+            return book;
+          });
+          return result;
+        })});
       })
     } else {
-      this.setState({ results: [] })
+      this.setState({ results: [] });
     }
-  }
+  };
 
   render() {
-    const { onUpdateBook } = this.props
-    const { query, results } = this.state
+    const { onUpdateBook } = this.props;
+    const { query, results } = this.state;
 
     return (
       <div className="search-books">
@@ -73,8 +73,8 @@ class SearchBooks extends Component {
           </ol>
         </div>
       </div>
-    )
+    );
   }
-}
+};
 
-export default SearchBooks
+export default SearchBooks;

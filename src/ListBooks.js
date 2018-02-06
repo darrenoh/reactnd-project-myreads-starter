@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Book from './Book'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Book from './Book';
 
 const ListBooks = props => (
   <div className="list-books">
@@ -60,6 +60,6 @@ const ListBooks = props => (
       <Link to="/search">Add a book</Link>
     </div>
   </div>
-)
+);
 
-export default ListBooks
+export default ListBooks;
