@@ -66,6 +66,7 @@ class SearchBooks extends Component {
           <ol className="books-grid">
             {results.map(result => (
               <Book
+                key={result.id}
                 book={result}
                 onUpdateBook={onUpdateBook}
               />

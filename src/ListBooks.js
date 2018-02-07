@@ -16,6 +16,7 @@ const ListBooks = props => (
               {props.books.filter(book => book.shelf === 'currentlyReading').map(
                 book => (
                   <Book
+                    key={book.id}
                     book={book}
                     onUpdateBook={props.onUpdateBook}
                   />
@@ -31,6 +32,7 @@ const ListBooks = props => (
               {props.books.filter(book => book.shelf === 'wantToRead').map(
                 book => (
                   <Book
+                    key={book.id}
                     book={book}
                     onUpdateBook={props.onUpdateBook}
                   />
@@ -46,6 +48,7 @@ const ListBooks = props => (
               {props.books.filter(book => book.shelf === 'read').map(
                 book => (
                   <Book
+                    key={book.id}
                     book={book}
                     onUpdateBook={props.onUpdateBook}
                   />
