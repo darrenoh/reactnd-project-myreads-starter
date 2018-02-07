@@ -18,7 +18,7 @@ const Book = props => (
       <div className="book-title">{props.book.title}</div>
       {props.book.authors && <div className="book-authors" dangerouslySetInnerHTML={{
         __html: props.book.authors.join('<br>')
-      }}/>}
+      }}></div>}
     </div>
   </li>
 );
