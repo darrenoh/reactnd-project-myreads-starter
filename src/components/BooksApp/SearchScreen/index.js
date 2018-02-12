@@ -18,7 +18,6 @@ class SearchScreen extends Component {
   updateQuery = (query) => {
     const { books } = this.props;
 
-    query = query.trim();
     this.setState({ query });
     if (query) {
       BooksAPI.search(query).then(results => {
